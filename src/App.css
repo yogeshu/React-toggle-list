@@ -8,6 +8,9 @@ li{
   height: 40vmin;
   pointer-events: none;
 }
+.ml-20{
+  margin-left: 20px; 
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

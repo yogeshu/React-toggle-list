@@ -98,14 +98,14 @@ console.log(initialState)
                       onDragStart={onDragStart}
                       onDragover={onDragover}
                       onDrop={onDrop}
+                       className="ml-20"
                     >
                       <Accordion>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
                           aria-controls={menu.id}
                           id={menu.id}
-                        >
-                          <p>{menu.name}</p>
+                        > <ul>                          <li>{menu.name}</li> </ul>
                         </AccordionSummary>
                         {menu.children.map((child) => {
                           if (child.type === "item" && child.selected === 1) {
@@ -118,6 +118,7 @@ console.log(initialState)
                                 onDragStart={onDragStart}
                                 onDragover={onDragover}
                                 onDrop={onDrop}
+                                 className="ml-20"
                               >
                                 <Accordion>
                                   <AccordionSummary
@@ -125,7 +126,7 @@ console.log(initialState)
                                     aria-controls={child.id}
                                     id={child.id}
                                   >
-                                    <p>{child.name}</p>
+                                    <ul> <li> {child.name} </li> </ul>
                                   </AccordionSummary>
                                   {child.children.map((grandChild) => {
                                     if (grandChild.selected === 1) {
@@ -138,17 +139,18 @@ console.log(initialState)
                                           onDragStart={onDragStart}
                                           onDragover={onDragover}
                                           onDrop={onDrop}
+                                          className="ml-20"
                                         >
-                                          <Accordion>
+                                          <Accordion >
                                             <AccordionSummary
                                               expandIcon={<ExpandMoreIcon />}
                                               aria-controls={grandChild.id}
                                               id={grandChild.id}
                                             >
-                                              <p>
+                                              <ul>
                                                 
                                                 {grandChild.name}
-                                              </p>{" "}
+                                              </ul>{" "}
                                             </AccordionSummary>
                                             {grandChild.children.map(
                                               (legendChild) => {
