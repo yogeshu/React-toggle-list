@@ -11,3 +11,7 @@ li{
 .ml-20{
   margin-left: 20px; 
 }
+
+.MuiAccordionSummary-expandIcon	{
+  float: left;
+}

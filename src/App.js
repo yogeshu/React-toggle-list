@@ -66,18 +66,18 @@ function App() {
   };
 console.log(initialState)
   return (
-    <div className="App">
+    <div className="">
       {/* <h1> React Toggle List Application </h1> */}
 
       {data.map((listData, index) => {
         return (
           <div
-            draggable="true"
-            data-position={index}
-            key={index}
-            onDragStart={onDragStart}
-            onDragOver={onDragover}
-            onDrop={onDrop}
+            // draggable="true"
+            // data-position={index}
+            // key={index}
+            // onDragStart={onDragStart}
+            // onDragOver={onDragover}
+            // onDrop={onDrop}
           >
             <Accordion>
               <AccordionSummary
@@ -116,7 +116,7 @@ console.log(initialState)
                                 data-position={index}
                                 key={index}
                                 onDragStart={onDragStart}
-                                onDragover={onDragover}
+                                onDragOver={onDragover}
                                 onDrop={onDrop}
                                  className="ml-20"
                               >
@@ -137,7 +137,7 @@ console.log(initialState)
                                           data-position={index}
                                           key={index}
                                           onDragStart={onDragStart}
-                                          onDragover={onDragover}
+                                          onDragOver={onDragover}
                                           onDrop={onDrop}
                                           className="ml-20"
                                         >
