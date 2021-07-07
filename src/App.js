@@ -69,119 +69,104 @@ console.log(initialState)
     <div className="">
       {/* <h1> React Toggle List Application </h1> */}
 
-      {data.map((listData, index) => {
+      { data.length > 0 ?  data.map((listData, index) => {
         return (
-          <div
-            // draggable="true"
-            // data-position={index}
-            // key={index}
-            // onDragStart={onDragStart}
-            // onDragOver={onDragover}
-            // onDrop={onDrop}
+          <details
+            draggable="true"
+            data-position={index}
+            key={listData.RestaurantID}
+            onDragStart={onDragStart}
+            onDragOver={onDragover}
+            onDrop={onDrop}
           >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <p>{listData.RestaurantName}</p>
+         
+                <summary>{listData.RestaurantName}</summary>
                 <br />
-              </AccordionSummary>
+             
               {listData.menu.map((menu) => {
                 if (menu.type === "sectionheader") {
                   return (
-                    <div
+                    <details
                       draggable="true"
-                      data-position={index}
-                      key={index}
+                      data-position={menu.id}
+                      key={menu.id}
                       onDragStart={onDragStart}
                       onDragover={onDragover}
                       onDrop={onDrop}
                        className="ml-20"
                     >
-                      <Accordion>
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls={menu.id}
-                          id={menu.id}
-                        > <ul>                          <li>{menu.name}</li> </ul>
-                        </AccordionSummary>
+                                        <summary>{menu.name}</summary> 
                         {menu.children.map((child) => {
                           if (child.type === "item" && child.selected === 1) {
                             return (
-                              <div
+                              <details
                                 draggable="true"
                                 draggable="true"
-                                data-position={index}
-                                key={index}
+                                data-position={child.id}
+                                key={child.id}
                                 onDragStart={onDragStart}
                                 onDragOver={onDragover}
                                 onDrop={onDrop}
                                  className="ml-20"
                               >
-                                <Accordion>
-                                  <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls={child.id}
-                                    id={child.id}
-                                  >
-                                    <ul> <li> {child.name} </li> </ul>
-                                  </AccordionSummary>
+                                
+                                  <summary> {child.name} </summary>
                                   {child.children.map((grandChild) => {
                                     if (grandChild.selected === 1) {
                                       return (
-                                        <div
+                                        <details
                                           draggable="true"
                                           draggable="true"
-                                          data-position={index}
-                                          key={index}
+                                          data-position={grandChild.id}
+                                          key={grandChild.id}
                                           onDragStart={onDragStart}
                                           onDragOver={onDragover}
                                           onDrop={onDrop}
                                           className="ml-20"
                                         >
-                                          <Accordion >
-                                            <AccordionSummary
-                                              expandIcon={<ExpandMoreIcon />}
-                                              aria-controls={grandChild.id}
-                                              id={grandChild.id}
-                                            >
-                                              <ul>
+                                       
+                                              <summary>
                                                 
                                                 {grandChild.name}
-                                              </ul>{" "}
-                                            </AccordionSummary>
+                                             </summary>{" "}
+                                         
                                             {grandChild.children.map(
                                               (legendChild) => {
                                                 if (
                                                   legendChild.selected === 1
                                                 ) {
                                                   return (
-                                                    <p>{legendChild.name}</p>
+                                                    <details draggable="true"
+                                                    draggable="true"
+                                                    data-position={legendChild.id}
+                                                    key={legendChild.id}
+                                                    onDragStart={onDragStart}
+                                                    onDragOver={onDragover}
+                                                    onDrop={onDrop}
+                                                    className="ml-20"> <summary> {legendChild.name} </summary></details>
                                                   );
                                                 }
                                               }
                                             )}
-                                          </Accordion>
-                                        </div>
+                                     
+                                        </details>
                                       );
                                     }
                                   })}
-                                </Accordion>
-                              </div>
+                                
+                              </details>
                             );
                           }
                         })}
-                      </Accordion>
-                    </div>
+                     
+                     </details>
                   );
                 }
               })}
-            </Accordion>
-          </div>
+           
+          </details>
         );
-      })}
+      }): "..loading"}
     </div>
   );
 }
